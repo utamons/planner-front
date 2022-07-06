@@ -14,28 +14,17 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-import logo from './logo.svg';
 import './App.css';
+import * as React from "react"
+import {Routes, Route, BrowserRouter} from "react-router-dom"
+import Playground from "./playground/playground";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return <BrowserRouter>
+        <Routes>
+            <Route path="/" element={<Playground/>}/>
+        </Routes>
+    </BrowserRouter>
 }
 
 export default App;
