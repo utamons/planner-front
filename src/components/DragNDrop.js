@@ -14,18 +14,40 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-import {styled} from "@mui/system";
-import style from "./style";
-import Item from "../components/Item";
 
-const DivStyled = styled('div')(style)
+const DragNDrop = (props) => {
 
-const Playground = () => {
-    return <DivStyled>
-        <Item text="Item1"/>
-        <Item text="Item2"/>
-        <Item text="Item3"/>
-    </DivStyled>
+    const {id}=props
+
+    function startDrag(ev) {
+        ev.dataTransfer.setData("id", id)
+        console.log('drag id=', id)
+        this.style.opacity = '0.1'
+    }
+
+    function dragOver(ev) {
+
+        ev.preventDefault()
+
+    }
+    function dragEnter(ev) {
+
+        ev.dataTransfer.dropEffect = props.dropEffect
+
+    }
+
+    function drop(ev) {
+
+        const srcId = ev.dataTransfer.getData("id")
+
+        if (srcId) {
+
+            props.onItemDropped(srcId, id)
+
+        }
+
+    }
+    return <div id={id} draggable onDragStart={startDrag} onDragOver={dragOver} onDragEnter={dragEnter} onDrop={drop}>{props.children}</div>
 }
 
-export default Playground
+export default DragNDrop

@@ -14,18 +14,17 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-import {styled} from "@mui/system";
-import style from "./style";
-import Item from "../components/Item";
+const ItemStyle = () => ({
+    width: 189,
+    height: '24.5px',
+    margin: '11px 0.5px 4.3px 0',
+    padding: '6.5px 79px 6.5px 75.5px',
+    boxShadow: '0 2px 2px 0 rgba(0, 0, 0, 0.25)',
+    backgroundColor: '#a3ecea',
+    textAlign: 'center',
+    borderRadius: '5px',
+    border: 'none',
+    fontSize: '17px'
+})
 
-const DivStyled = styled('div')(style)
-
-const Playground = () => {
-    return <DivStyled>
-        <Item text="Item1"/>
-        <Item text="Item2"/>
-        <Item text="Item3"/>
-    </DivStyled>
-}
-
-export default Playground
+export default ItemStyle

@@ -14,18 +14,19 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-import {styled} from "@mui/system";
-import style from "./style";
-import Item from "../components/Item";
+import ItemStyle from './Item.style'
+import * as React from 'react';
+import { styled } from '@mui/system';
+import DragNDrop from "./DragNDrop";
 
-const DivStyled = styled('div')(style)
+const ItemStyled = styled('div')(ItemStyle)
 
-const Playground = () => {
-    return <DivStyled>
-        <Item text="Item1"/>
-        <Item text="Item2"/>
-        <Item text="Item3"/>
-    </DivStyled>
+const Item = (props) => {
+    return <DragNDrop>
+        <ItemStyled>
+            {props.text}
+        </ItemStyled>
+    </DragNDrop>
 }
 
-export default Playground
+export default Item
