@@ -21,10 +21,13 @@ import Item from "../components/Item";
 const DivStyled = styled('div')(style)
 
 const Playground = () => {
+    const onItemDropped = () => {
+        console.log('Dropped')
+    }
     return <DivStyled>
-        <Item text="Item1"/>
-        <Item text="Item2"/>
-        <Item text="Item3"/>
+        <Item id="1" text="Item1" onItemDropped={onItemDropped}/>
+        <Item id="2" text="Item2" onItemDropped={onItemDropped}/>
+        <Item id="3" text="Item3" onItemDropped={onItemDropped}/>
     </DivStyled>
 }
 

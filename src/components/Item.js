@@ -17,16 +17,17 @@
 import ItemStyle from './Item.style'
 import * as React from 'react';
 import { styled } from '@mui/system';
-import DragNDrop from "./DragNDrop";
+import Draggable from "react-draggable";
 
 const ItemStyled = styled('div')(ItemStyle)
 
 const Item = (props) => {
-    return <DragNDrop>
+    const { text } = props
+    return <Draggable axis="y">
         <ItemStyled>
-            {props.text}
+            {text}
         </ItemStyled>
-    </DragNDrop>
+    </Draggable>
 }
 
 export default Item

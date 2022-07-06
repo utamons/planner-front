@@ -22,7 +22,6 @@ const DragNDrop = (props) => {
     function startDrag(ev) {
         ev.dataTransfer.setData("id", id)
         console.log('drag id=', id)
-        this.style.opacity = '0.1'
     }
 
     function dragOver(ev) {
@@ -32,7 +31,7 @@ const DragNDrop = (props) => {
     }
     function dragEnter(ev) {
 
-        ev.dataTransfer.dropEffect = props.dropEffect
+        ev.dataTransfer.dropEffect = 'link'
 
     }
 
